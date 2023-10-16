@@ -1,18 +1,14 @@
 class CaesarCipher {
-  static breakUpString(string) {
-    return [...string];
-  }
-
   static isLetter(character) {
     return /^[a-zA-Z]$/.test(character);
   }
 
-  static addWithWrap(array, shift) {
+  static addWithWrap(string, shift) {
     const scrambledArray = [];
 
-    for (let i = 0; i < array.length; i++) {
-      if (CaesarCipher.isLetter(array[i])) {
-        let charCode = array[i].charCodeAt(0);
+    for (let i = 0; i < string.length; i++) {
+      if (CaesarCipher.isLetter(string[i])) {
+        let charCode = string[i].charCodeAt(0);
         const isUppercase = charCode >= 65 && charCode <= 90;
         const isLowercase = charCode >= 97 && charCode <= 122;
 
@@ -28,7 +24,7 @@ class CaesarCipher {
 
         scrambledArray.push(String.fromCharCode(charCode));
       } else {
-        scrambledArray.push(array[i]);
+        scrambledArray.push(string[i]);
       }
     }
 
